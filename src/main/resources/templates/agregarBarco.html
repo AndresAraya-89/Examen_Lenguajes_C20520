@@ -14,7 +14,7 @@
     <hr>
 
     <section>
-        <form action="/barco/agregar" th:object="${barco}" method="post" style="text-align:center">
+        <form action="/barco/agrega" th:object="${barco}" method="post" style="text-align:center">
             <label>Nombre: <input type="text" name="nombre" th:field="*{nombre}" required></label><br><br>
             <label>Origen: <input type="text" name="origen" th:field="*{origen}" required></label><br><br>
             <label>Destino: <input type="text" name="destino" th:field="*{destino}" required></label><br><br>

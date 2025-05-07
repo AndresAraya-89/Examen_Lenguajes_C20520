@@ -34,23 +34,31 @@ public class BarcoController {
     @GetMapping("/editar/{id}")
     public String editarBarco(@PathVariable Integer id, Model model) {
         Barco barco = barcoService.consultaPorId(id)
-            .orElseThrow(() -> new IllegalArgumentException("ID de barco inválido: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("ID de barco inválido: " + id));
         model.addAttribute("barco", barco);
         return "editarBarco";
     }
 
-    //Crear barco
+    // Crear barco
     @PostMapping("/actualizar")
     public String actualizarBarco(@ModelAttribute Barco barco) {
         barcoService.actualizar(barco.getId_barco(), barco);
         return "actualizarBarco";
     }
 
-    //Agregar barco
+    // Agregar barco
+    // Debes agregar este método para manejar GET /barco/agregar
+    @GetMapping("/agregar")
+    public String mostrarFormularioAgregar(Model model) {
+        model.addAttribute("nuevoBarco", new Barco());
+        return "agregarBarco";
+    }
+
+    // El POST queda igual
     @PostMapping("/agregar")
     public String crearBarco(@ModelAttribute Barco barco) {
         barcoService.agregar(barco);
-        return "agregarBarco";
+        return "redirect:/barco"; // Mejor redireccionar a la lista
     }
 
     // Eliminar barco
@@ -60,15 +68,13 @@ public class BarcoController {
         return "redirect:/barco";
     }
 
-    //Consultar por id del barco
+    // Consultar por id del barco
     @GetMapping("/{id}")
     public String consultaPorId(@PathVariable Integer id, Model model) {
         Barco barco = barcoService.consultaPorId(id)
-            .orElseThrow(() -> new IllegalArgumentException("Barco no encontrado con ID: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Barco no encontrado con ID: " + id));
         model.addAttribute("barco", barco);
-        return "barcoConsultar"; 
+        return "barcoConsultar";
     }
-
-
 
 }
