@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Formulario de curso</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+    <header>
+        <h2>Formulario de curso - Editar</h2>
+    </header>
+    <hr>
+
+    <section>
+        <!---->
+        <form action="/barco/editar" th:object="${barco}" method="post" style="text-align:center">
+            <input type="hidden" th:field="*{sigla_Pk}" />
+            <label>Nombre: <input type="text" name="nombre" th:field="*{nombre}" required></label><br><br>
+            <label>Origen: <input type="text" name="origen" th:field="*{origen}" required></label><br><br>
+            <label>Destino: <input type="text" name="destino" th:field="*{destino}" required></label><br><br>
+            <label>Capacidad: <input type="number" name="capacidad" th:field="*{capacidad}" required></label><br><br>
+    
+            <button type="submit">Guardar</button>
+        </form>
+        <div>
+            <a href="/barco">Volver</a>
+        </div>
+    </section>
+    <hr>
+
+    <footer>
+        <p> Nombre: Andres Araya Aguero</p>
+        <p> Carne: C20520</p>
+        <a class="correo" href="mailto:andres.arayaaguero@ucr.ac.cr">andres.arayaaguero@ucr.ac.cr</a>
+        <br><br>
+    </footer>
+</body>
+
+</html>

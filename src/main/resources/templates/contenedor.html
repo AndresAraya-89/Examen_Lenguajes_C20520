@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contenedores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-3">
+        <h1>Contenedores</h1>
+        
+        <table class="table" th:if="${not #lists.isEmpty(contenedores)}">
+            <tr>
+                <th>VIN</th>
+                <th>Fecha</th>
+                <th>Barco</th>
+            </tr>
+            <tr th:each="contenedor : ${contenedores}">
+                <td th:text="${contenedor.vin}">VIN</td>
+                <td th:text="${contenedor.fecha}">Fecha</td>
+                <td th:text="${contenedor.barco?.id_barco} ?: 'Sin asignar'">Barco</td>
+            </tr>
+        </table>
+        
+        <p th:if="${#lists.isEmpty(contenedores)}">No hay contenedores registrados</p>
+    </div>
+</body>
+</html>

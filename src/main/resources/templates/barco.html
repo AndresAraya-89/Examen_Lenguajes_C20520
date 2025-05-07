@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barco</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+
+    <head>
+        <h1 id="header">Barcos</h1>
+    </head>
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                <a href="/barco/agregar" class="btn btn-primary">Agregar</a>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                <a href="/barco/buscar" class="btn btn-primary">Buscar</a>
+            </div>
+            
+
+        </div>
+    </div>
+
+    <br>
+
+    <section>
+        <table>
+            <tr>
+                <th>Id_Barco</th>
+                <th>Nombre</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Capacidad</th>
+                <th>Opciones</th>
+            </tr>
+            <tr th:each="barco : ${barcos}">
+                <td th:text="${barco.id_barco}"></td>
+                <td th:text="${barco.nombre}"></td>
+                <td th:text="${barco.origen}"></td>
+                <td th:text="${barco.destino}"></td>
+                <td th:text="${barco.capacidad}"></td>
+                <td>
+
+                    <a th:href="@{/barco/editar/{id_barco}(id_barco=${barco.id_barco})}">Editar</a>
+                    <a th:href="@{/barco/eliminar/{id_barco}(id_barco=${barco.id_barco})}" class="delete">Eliminar</a>
+                    <a th:href="@{/contenedor}">Contenedores - agregar</a>
+                </td>
+            </tr>
+        </table>
+
+        <br>
+
+    </section>
+
+    <hr>
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                    <p>Nombre: Andres Araya Aguero</p>
+                    <p>Carne: C20520</p>
+                    <a class="correo" href="mailto:andres.arayaaguero@ucr.ac.cr">andres.arayaaguero@ucr.ac.cr</a>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                    <a class="correo" href="#titulo"> Ir al inicio</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

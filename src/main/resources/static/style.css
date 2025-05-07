@@ -1,0 +1,43 @@
+table{ 
+    width: 70%;               /* Hace que la tabla ocupe el 50% del ancho de la página */
+    margin: auto;             /* Centra la tabla en la página */
+    border-collapse: collapse; /* Une los bordes de las celdas para que no se dupliquen */
+}
+th, td { 
+    border: 1px solid black;  /* Añade bordes negros a las celdas */
+    padding: 10px;            /* Espaciado interno en celdas */
+    text-align: center;       /* Alinea el texto al centro */
+}
+
+header {
+    text-align: center
+}
+
+a{ 
+    text-decoration: none;    /* Quita el subrayado de los enlaces */
+    color: white;             /* Hace que el texto del enlace sea blanco */
+    background: blue;         /* Pone el fondo del enlace en azul */
+    padding: 5px;             /* Añade espacio alrededor del texto del enlace */
+    border-radius: 5px;       /* Redondea las esquinas del botón */
+}
+.correo{
+    color: blue;
+    background-color: white;
+}
+
+
+.delete { 
+    background: red;          /* Estilo especial para botones de eliminación en rojo */
+}
+
+.subtitulo, .titulo   {
+    text-align: center;
+}
+
+h1, h2, img {
+    background-color: #055edd;
+}
+
+#botones {
+    text-align: center;
+}
